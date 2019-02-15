@@ -40,5 +40,7 @@ resource_types:
           path: app-image/digest
 ```
 
-### For some reason I found it works with linkyard/concourse-helm-resource:2.6.2 but not with the latest version.
+#### Example pipeline includes publishing the docker image to gogole container registry and dockerhub.
+
+#### For some reason I found it works with linkyard/concourse-helm-resource:2.6.2 but not with the latest version.
 

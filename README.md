@@ -1,9 +1,10 @@
-# build and push 
+## build and push 
 ```
 docker build -t ldbl/helm-concourse-gcp:2.6.2 .
 docker push ldbl/helm-concourse-gcp:2.6.2
 ```
-#Usage resource type helm 
+## Usage resource type helm 
+```
 resource_types:
 - name: helm
   type: docker-image
@@ -11,7 +12,9 @@ resource_types:
     repository: ldbl/helm-concourse-gcp
     tag: 2.6.2
 ```
-#Publish helm chart 
+
+## Publish helm chart 
+
 ```
   - name: deploy-chart
     plan:
@@ -35,5 +38,6 @@ resource_types:
         - key: image.digest
           path: app-image/digest
 ```
+
 ### For some reason I found it works with linkyard/concourse-helm-resource:2.6.2 but not with the latest version.
 

@@ -1,7 +1,7 @@
 ## build and push 
 ```
-docker build -t ldbl/helm-concourse-gcp:2.6.2 .
-docker push ldbl/helm-concourse-gcp:2.6.2
+docker build -t ldbl/helm-concourse-gcp:2.8.2 .
+docker push ldbl/helm-concourse-gcp:2.8.2
 ```
 ### Usage: 
 #### Resource type helm 
@@ -11,7 +11,7 @@ resource_types:
   type: docker-image
   source:
     repository: ldbl/helm-concourse-gcp
-    tag: 2.6.2
+    tag: 2.8.2
 ```
 
 #### Publish helm chart 

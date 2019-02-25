@@ -5,6 +5,7 @@ setup_kubernetes() {
   payload=$1
   source=$2
   # Setup kubectl
+  gcloud_auth=$(jq -r '.params.json_key // ""' < $payload)
   cluster_url=$(jq -r '.source.cluster_url // ""' < $payload)
   if [ -z "$cluster_url" ]; then
     echo "invalid payload (missing cluster_url)"
@@ -41,7 +42,10 @@ setup_kubernetes() {
     kubectl config set-cluster default --server=$cluster_url
     kubectl config set-context default --cluster=default
   fi
-
+  if [ -n "$gcloud_auth" ]; then
+  echo "$gcloud_auth" > gcloud-auth-key.json
+  gcloud auth activate-service-account --key-file=gcloud-auth-key.json
+  fi
   kubectl config use-context default
   kubectl cluster-info
   kubectl version

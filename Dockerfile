@@ -1,4 +1,4 @@
-FROM linkyard/concourse-helm-resource:2.6.2
+FROM linkyard/concourse-helm-resource:2.8.2
 
 ENV PATH=$PATH:/opt/google-cloud-sdk/bin
 ENV GCLOUD_SDK_VERSION=234.0.0

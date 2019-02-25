@@ -13,3 +13,6 @@ RUN apk update && apk add curl openssl python \
  && mkdir -p /opt && cd /opt \
  && wget -q -O - $GCLOUD_SDK_URL |tar zxf - \
  && /bin/bash -l -c "echo Y | /opt/google-cloud-sdk/install.sh && exit"
+
+ADD assets /opt/resource
+RUN chmod +x /opt/resource/*

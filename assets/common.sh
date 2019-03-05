@@ -5,7 +5,7 @@ setup_kubernetes() {
   payload=$1
   source=$2
   # Setup kubectl
-  gcloud_auth=$(jq -r '.params.json_key // ""' < $payload)
+  gcloud_auth=$(jq -r '.params.service_account_json // ""' < $payload)
   cluster_url=$(jq -r '.source.cluster_url // ""' < $payload)
   if [ -z "$cluster_url" ]; then
     echo "invalid payload (missing cluster_url)"
